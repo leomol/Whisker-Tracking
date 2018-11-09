@@ -3,7 +3,7 @@
 
 WhiskerTrackerParallel.m tracks the approximate movement of the mouse's whiskers by quantifying the average whisker angle via a Radon transform of an image of the whiskers (Fig. 1). A detailed explanation of the Radon transform can be for here: https://link.springer.com/article/10.1007%2Fs10827-009-0159-1
 
-| ![](WhiskerPad.png) |
+| ![](whiskerPad.png) |
 |:--:|
 | *Figure 1: Still-shot of Mouse whisker pad during acquisition* |
 
