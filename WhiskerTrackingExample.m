@@ -4,7 +4,7 @@
 % Ph.D. Candidate, Department of Biomedical Engineering
 % The Pennsylvania State University
 %
-%   Last Revised: November 5th, 2018
+%   Last Revised: November 9th, 2018
 %________________________________________________________________________________________________________________________
 
 %% BLOCK [1]: Run the whisker analysis code to pull out the average whisker angle changes over time
@@ -27,19 +27,19 @@ threshLine = ones(1, length(whiskingThreshold))*5000;   % arbitrary event thresh
 
 %% BLOCK [3]: Figure generation
 figure;
-subplot(3, 1, 1)
+ax1 = subplot(3, 1, 1);
 plot((1:length(whiskerAngle)) / samplingRate, whiskerAngle, 'k');
 title('Whisker Angle')
 ylabel('Angle (degrees)')
 xlabel('Time (seconds)')
 
-subplot(3, 1, 2)
+ax2 = subplot(3, 1, 2);
 plot((1:length(whiskerAcceleration)) / samplingRate, whiskerAcceleration, 'k');
 title('Whisker Acceleration')
 ylabel('Acceleration (degrees/sec^2)')
 xlabel('Time (seconds)')
 
-subplot(3, 1, 3)
+ax3 = subplot(3, 1, 3);
 plot((1:length(whiskingThreshold)) / samplingRate, whiskingThreshold, 'k');
 hold on;
 threshold = plot((1:length(whiskingThreshold)) / samplingRate, threshLine, 'r', 'LineWidth', 2);
@@ -47,3 +47,4 @@ title('Setting Whisking Event Threshold')
 ylabel('a.u.')
 xlabel('Time (seconds)')
 legend(threshold, {'Whisking Threshold'})
+linkaxes([ax1 ax2 ax3], 'x')
