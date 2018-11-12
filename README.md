@@ -5,9 +5,9 @@ WhiskerTrackerParallel.m tracks the approximate movement of the mouse's whiskers
 
 | ![](whiskerPad.png) |
 |:--:|
-| *Figure 1: Still-shot of Mouse whisker pad during acquisition* |
+| *Figure 1: Still-shot of mouse's whiskers during acquisition* |
 
-The camera used to track the animal's whiskers is a Basler acA640-120gm CCD with an Edmund Optics 18 mm fixed focal length lens (part no. 54857). For our specific set-up, the whiskers are illuminated by a 660 nm (red) light underneath the mouse's feet. We thus utilize a 660 nm bandpass filter mounted on the lens to maintain a constant and even illumination of the individual whiskers. The camera is triggered at 150 Hz and the data is saved via a LabVIEW acquisition program.
+The camera used to track the animal's whiskers is a Basler acA640-120gm CCD with an Edmund Optics 18 mm fixed focal length lens (part no. 54857). For our specific set-up, the whiskers are illuminated by a 660 nm (red) light underneath the mouse's head. We thus utilize a 660 nm bandpass filter mounted on the lens to maintain a constant and even illumination of the individual whiskers. The camera is triggered at 150 Hz and the data is saved via a LabVIEW acquisition program.
 
 In the Github folder, you will find three Matlab (.m) files:
 1) WhiskerTrackingExample.m
