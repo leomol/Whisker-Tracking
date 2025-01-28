@@ -1,3 +1,11 @@
+## Changelog
+- Modified `WhiskerTrackerParallel.m` to handle longer data sets (which the GPU would not be able to handle otherwise).
+- Added a loader for `tif` data.
+
+## Requirements
+- MATLAB
+- Parallel Toolbox
+- Image Processing Toolbox
 
 ## Whisker Tracking Using The Radon Transform
 
@@ -9,19 +17,12 @@ WhiskerTrackerParallel.m tracks the approximate movement of the mouse's whiskers
 
 The camera used to track the animal's whiskers is a Basler acA640-120gm CCD with an Edmund Optics 18 mm fixed focal length lens (part no. 54857). For our specific set-up, the whiskers are illuminated by a 660 nm (red) light underneath the mouse's head. We thus utilize a 660 nm bandpass filter mounted on the lens to maintain a constant and even illumination of the individual whiskers. The camera is triggered at 150 Hz and the data is saved via a LabVIEW acquisition program.
 
-In the Github folder, you will find three Matlab (.m) files:
-1) WhiskerTrackingExample.m
-2) WhiskerTrackerParallel.m
-3) ReadBinFileU8MatrixGradient.m
-
-As well as Example_WhiskerCam.bin, which is a single 1 minute trial from the Basler camera outputed from LabVIEW. The Matlab code WhiskerTrackExample.m is a demonstration code written to utilize the core WhiskerTrackerParallel.m and ReadBinFileU8MatrixGradient.m functions and generate a figures to visualize the sample data. Before running WhiskerTrackingExample.m, you need to verify that the computer you are using has a compatible CUDA-enabled Nvidia graphics card. While GPU computation is not necessary, it significantly speeds up the computation time of the radon transform. A list of compatible GPUs can be found at: https://developer.nvidia.com/cuda-gpus. To enable GPU computation using the gpuArray function, the Parallel Computing Toolbox must be downloaded from Mathworks as a Matlab add-on. More information can be found here: https://www.mathworks.com/products/parallel-computing.html.
+In the Github folder, you will find Example_WhiskerCam.bin, which is a single 1 minute trial from the Basler camera outputed from LabVIEW. The Matlab code WhiskerTrackExample1.m is a demonstration code written to utilize the core WhiskerTrackerParallel.m and ReadBinFileU8MatrixGradient.m functions and generate a figures to visualize the sample data. Before running WhiskerTrackingExample1.m, you need to verify that the computer you are using has a compatible CUDA-enabled Nvidia graphics card. While GPU computation is not necessary, it significantly speeds up the computation time of the radon transform. A list of compatible GPUs can be found at: https://developer.nvidia.com/cuda-gpus. To enable GPU computation using the gpuArray function, the Parallel Computing Toolbox must be downloaded from Mathworks as a Matlab add-on. More information can be found here: https://www.mathworks.com/products/parallel-computing.html.
 
 Once you have verified that your computer has a compatible GPU and the Parallel Processing Toolbox is installed:
-1) Open WhiskerTrackingExample.m in Matlab
-2) Add the Whisker Tracking folder to the Matlab file path.
+1) Run setup.m to add dependencies to the MATLAB path
+2) Open WhiskerTrackingExample1.m in Matlab
 3) Click play.
-
-*If you do not have a compatible GPU, you cannot analyze Example_WhiskerCam.bin with the attached code. A pre-analyzed data set is included in the folder as a Matlab structure 'whiskerAngle.mat'. If you do not have a compatible GPU, double click whiskerAngle.mat to add it to the Matlab variable workspace. Skip BLOCK [1] in WhiskerTrackingExample.m, and manually run only BLOCKS [2] and [3].*
 
 The figure generated from WhiskerTrackingExample.m contains 3 subplots:  
 
