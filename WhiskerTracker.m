@@ -1,4 +1,4 @@
-function WhiskerTracker(frames)
+function data = WhiskerTracker(frames, samplingRate)
     % Filter the whisker angle and evaluate potential whisking events.
     whiskerAngle = WhiskerTrackerParallel(frames);
     downSampleRate = 30; % Downsampled sampling Rate (Hz)
@@ -36,9 +36,11 @@ function WhiskerTracker(frames)
     xlabel('Time (seconds)');
     legend(threshold, {'Whisking Threshold'});
     linkaxes([ax1, ax2, ax3], 'x');
-    
-    % Save.
-    [folder, basename] = fileparts(filename);
-    vars = {'filename', 'whiskerAngle', 'filteredWhiskerAngle', 'resampledWhiskers', 'whiskerAcceleration', 'whiskingThreshold'};
-    save(fullfile(folder, sprintf('%s-whisker-data.mat', basename)), vars{:});
+
+    data = struct();
+    data.whiskerAngle = whiskerAngle;
+    data.filteredWhiskerAngle = filteredWhiskerAngle;
+    data.resampledWhiskers = resampledWhiskers;
+    data.whiskerAcceleration = whiskerAcceleration;
+    data.whiskingThreshold = whiskingThreshold;
 end
