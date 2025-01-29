@@ -1,5 +1,5 @@
 ## Changelog
-- Modified `WhiskerTrackerParallel.m` to handle longer data sets (which the GPU would not be able to handle otherwise).
+- Modified `WhiskerTrackerParallel.m` to handle longer data sets.
 - Added a loader for `tif` data.
 
 ## Requirements

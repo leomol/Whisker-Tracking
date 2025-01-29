@@ -4,8 +4,8 @@
 % Run the whisker analysis code to pull out the average whisker angle changes over time.
 % Image size: 153x852
 % Number of frames: 25000
-% Approximate running time: 386.3s
-filename = 'data/50Hz25000Frames.tif';
+% Approximate running time (RTX A4000): 386.3s
+filename = '50Hz25000Frames.tif';
 samplingRate = 50;
 frames = loadTif(filename);
 data = WhiskerTracker(frames, samplingRate);
